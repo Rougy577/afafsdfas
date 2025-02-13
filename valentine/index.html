@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>สร้างการ์ดวาเลนไทน์</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f8f8f8;
+            color: #d32f2f;
+            text-align: center;
+            padding: 50px;
+        }
+        h1 {
+            font-size: 3em;
+            margin-bottom: 20px;
+        }
+        .container {
+            background-color: #ffffff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            display: inline-block;
+            width: 100%;
+            max-width: 500px;
+        }
+        input[type="file"] {
+            padding: 10px;
+            font-size: 1em;
+            border: 2px solid #d32f2f;
+            border-radius: 5px;
+            margin-bottom: 10px;
+        }
+        textarea {
+            width: 100%;
+            padding: 10px;
+            font-size: 1em;
+            border: 2px solid #d32f2f;
+            border-radius: 5px;
+            margin-bottom: 10px;
+            height: 150px;
+            resize: none;
+        }
+        button {
+            padding: 10px 20px;
+            font-size: 1em;
+            background-color: #d32f2f;
+            color: #ffffff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #b71c1c;
+        }
+        .card-preview {
+            background-color: #ffebee;
+            padding: 20px;
+            margin-top: 20px;
+            border-radius: 10px;
+            display: inline-block;
+            width: 100%;
+            max-width: 500px;
+            text-align: center;
+        }
+        .card-preview img {
+            width: 100%;
+            height: auto;
+            border-radius: 10px;
+            margin-bottom: 15px;
+        }
+        .card-message {
+            font-size: 1.2em;
+            color: #d32f2f;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>สร้างการ์ดวาเลนไทน์</h1>
+
+        <!-- ฟอร์มสำหรับอัปโหลดการ์ด -->
+        <form action="upload_card.php" method="POST" enctype="multipart/form-data">
+            <input type="file" name="imageUpload" accept="image/*" required>
+            <textarea name="message" placeholder="พิมพ์ข้อความของคุณที่นี่..." required></textarea>
+            <button type="submit">สร้างการ์ด</button>
+        </form>
+
+        <!-- การ์ดที่สร้างขึ้น (จะแสดงหลังจากการอัปโหลด) -->
+        <div id="cardPreview" class="card-preview" style="display:none;">
+            <img id="cardImage" src="" alt="การ์ดวาเลนไทน์">
+            <p class="card-message" id="cardMessage"></p>
+        </div>
+    </div>
+</body>
+</html>
